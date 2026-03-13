@@ -26,7 +26,7 @@ required_vars=(
   SYMPHONY_PORT
   SYMPHONY_WORKSPACE_ROOT
   SYMPHONY_LOGS_ROOT
-  SYMPHONY_SOURCE_REPO_PATH
+  SYMPHONY_SOURCE_REPO_URL
 )
 
 for name in "${required_vars[@]}"; do
@@ -42,7 +42,7 @@ export LINEAR_API_KEY
 export SYMPHONY_PORT
 export SYMPHONY_WORKSPACE_ROOT
 export SYMPHONY_LOGS_ROOT
-export SYMPHONY_SOURCE_REPO_PATH
+export SYMPHONY_SOURCE_REPO_URL
 export SYMPHONY_LINEAR_PROJECT_SLUG
 
 if [[ ! -f "$workflow_template" ]]; then
