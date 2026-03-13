@@ -17,7 +17,7 @@ tracker:
 polling:
   interval_ms: 10000
 observability:
-  dashboard_enabled: false
+  dashboard_enabled: true
 workspace:
   root: $SYMPHONY_WORKSPACE_ROOT
 hooks:
