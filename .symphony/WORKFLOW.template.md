@@ -6,8 +6,6 @@ tracker:
   active_states:
     - Todo
     - In Progress
-    - Rework
-    - Merging
   terminal_states:
     - Done
     - Closed
@@ -23,12 +21,26 @@ workspace:
 hooks:
   after_create: |
     set -eu
+    : "${SYMPHONY_LOCAL_REPO_ROOT:?SYMPHONY_LOCAL_REPO_ROOT must be set}"
 
-    git clone --depth 1 "$SYMPHONY_SOURCE_REPO_URL" .
+    git clone --depth 1 "$SYMPHONY_LOCAL_REPO_ROOT" .
 
-    if command -v uv >/dev/null 2>&1; then
+    if command -v uv >/dev/null 2>&1 && [ -f pyproject.toml ]; then
       uv sync
     fi
+  after_run: |
+    set -eu
+    : "${SYMPHONY_LOCAL_REPO_ROOT:?SYMPHONY_LOCAL_REPO_ROOT must be set}"
+
+    workspace_head="$(git rev-parse HEAD)"
+    local_head="$(git -C "$SYMPHONY_LOCAL_REPO_ROOT" rev-parse HEAD)"
+
+    if [ "$workspace_head" = "$local_head" ]; then
+      exit 0
+    fi
+
+    git -C "$SYMPHONY_LOCAL_REPO_ROOT" fetch "$PWD" HEAD
+    git -C "$SYMPHONY_LOCAL_REPO_ROOT" merge --ff-only FETCH_HEAD
   timeout_ms: 300000
 agent:
   max_concurrent_agents: 1
@@ -83,6 +95,9 @@ Product intent:
 - Exclude tool calls, MCP invocation noise, internal reasoning traces, and execution artifacts that do not help memory inference.
 
 Repository direction:
+- Treat the current `main` clone as the intended starting point, even if it is minimal.
+- Do not assume missing old files are corruption or something to recover.
+- If the repo is sparse, scaffold only the minimum code needed for the current issue.
 - Primary code lives under `src/llm_chat_archive`.
 - Build collectors source-by-source and adapter-by-adapter.
 - Keep source-specific collectors modular so they can evolve independently.
@@ -92,93 +107,57 @@ Repository direction:
 
 Source of truth and git rules:
 - The workspace is a real git clone of `origin`; treat that clone as the only place to edit code during the run.
-- Never treat `/Users/chenjing/dev/chat-collector` as the place where work is preserved. That path is only the operator's local checkout.
-- All durable work must be preserved through normal git flow: branch, commit, push, PR, review, and merge.
-- Do not finish a coding ticket with uncommitted or unpushed work sitting only in the workspace.
-- If the workspace is missing `.git` metadata or has no `origin` remote, treat that as a blocker. Do not continue coding in a non-git workspace.
+- The operator local checkout at `/Users/chenjing/dev/chat-collector` is the canonical landing zone for completed code.
+- New workspaces are cloned from that local checkout, and completed local commits should fast-forward back into it.
+- Never treat old Symphony workspaces, old Linear attachments, or prior recovery artifacts as canonical source unless the current issue explicitly asks for them.
+- Keep changes in git when practical, but do not let push, PR, auth, or review plumbing become the main scope unless the issue is explicitly about publication.
+- A coding ticket may finish with local commits and clear validation when remote publication is out of scope or unavailable.
+- If the workspace is missing `.git` metadata or has no `origin` remote, record one concise blocker note and stop instead of inventing recovery work.
 
 Ticket management posture:
 - Treat Linear as an active work queue, not a passive tracker.
-- If a ticket is too broad, split the remaining work into smaller actionable Linear issues instead of keeping scope implicit.
-- If meaningful follow-up work is discovered, create new Linear issues proactively instead of leaving vague notes for later.
-- New tickets should include a concrete title, problem statement, scope, and acceptance criteria.
-- For unattended overnight execution, create the next immediately actionable follow-up ticket in `Todo` so Symphony can keep pulling work.
-- Use `Backlog` only for lower-confidence ideas, optional future improvements, or work that should not be pulled immediately.
-- If a follow-up ticket blocks the current ticket, link it with `blockedBy` and explain the dependency.
-- Prefer one ticket per source, parser, cleanup pass, CLI control, or TUI milestone when those concerns can be delivered independently.
+- Default to finishing the current ticket directly instead of reshaping the queue.
+- Create a new Linear issue only when a clearly independent next slice is required and the current ticket cannot reasonably absorb it.
+- Keep follow-up creation sparse. Prefer zero new tickets; create at most one immediate `Todo` follow-up when it is truly needed.
+- Do not create GitHub, auth, browser, or infrastructure blocker tickets unless the current issue is explicitly about those topics.
+- Do not create `Backlog` tickets for vague future ideas during implementation work.
 
 Default posture:
 1. This is an unattended orchestration session. Do not ask a human to perform follow-up actions unless blocked by missing required auth, permissions, or secrets.
 2. Start every task by determining the current Linear status and following the matching flow below.
-3. Use one persistent Linear comment headed `## Codex Workpad` as the source of truth for plan, progress, validation, and handoff.
-4. Reproduce first. Record concrete evidence of current behavior before editing code.
-5. Run `pull` before code edits so the branch starts from the latest `origin/main`.
-6. Work only in the provided git workspace clone.
-7. Final response must report completed actions and blockers only.
-
-Related skills:
-- `linear`: interact with Linear.
-- `commit`: produce clean logical commits.
-- `push`: publish the current branch.
-- `pull`: sync with latest `origin/main`.
-- `land`: when the ticket reaches `Merging`, explicitly follow `.codex/skills/land/SKILL.md` and keep going until the PR is merged.
+3. Keep Linear comments sparse. Use at most one concise progress comment, updating it in place only when starting, blocked, or done.
+4. Treat the current issue description as the primary scope boundary. Do not invent adjacent recovery or publication work.
+5. Work only in the provided git workspace clone.
+6. Reproduce current behavior when it is needed to guide implementation, not as a ritual.
+7. Final response must report completed actions, validation, and blockers only.
 
 Status map:
 - `Backlog` -> out of scope for active execution. Do not modify.
-- `Todo` -> immediately move to `In Progress`, create or refresh the workpad, then execute.
+- `Todo` -> immediately move to `In Progress`, then execute.
 - `In Progress` -> implementation actively underway.
-- `Human Review` -> PR is attached and validated; wait for human review decision.
-- `Rework` -> reviewer requested changes; treat as a fresh execution pass.
-- `Merging` -> approved by human; run the `land` flow until merged.
 - `Done` -> terminal state; no further action.
+- `Canceled`, `Cancelled`, `Closed`, `Duplicate` -> terminal state; no further action.
+- Any other non-active state -> out of scope. Leave it unchanged unless the issue explicitly asks for it.
 
 Execution flow:
 1. Read the current issue state and route using the status map above.
-2. Find or create exactly one `## Codex Workpad` comment and keep it updated in place.
-3. Put a compact environment stamp at the top of the workpad as `<hostname>:<abs-workdir>@<short-sha>`.
-4. Maintain these workpad sections:
-   - `Plan`
-   - `Acceptance Criteria`
-   - `Validation`
-   - `Notes`
-   - `Confusions` only when needed
-5. Before implementing, capture:
-   - current repo state (`branch`, `git status`, `HEAD`)
-   - reproduction evidence
-   - result of syncing with latest `origin/main`
-6. Implement against the workpad checklist and update it after each meaningful milestone.
-7. Validate the exact behavior you changed. If the issue description includes testing instructions, copy them into the workpad and treat them as required.
-8. For real collection runs and validation output, write archives under `/Users/chenjing/dev/chat-history`, not inside this repo.
-
-PR and handoff flow:
-1. Before any handoff, ensure the workspace has committed changes on a branch derived from `origin/main`.
-2. Push the branch to `origin`.
-3. Create or update a GitHub PR for that branch.
-4. Attach the PR URL to the Linear issue.
-5. Ensure the PR has label `symphony`.
-6. Before moving to `Human Review`:
-   - required validation is green
-   - acceptance criteria are explicitly checked off in the workpad
-   - the branch is pushed
-   - the PR exists and is linked on the issue
-   - all known review feedback has been addressed or explicitly pushed back on
-7. Only then move the issue to `Human Review`.
-8. When the issue enters `Merging`, run the `land` skill flow. Do not call `gh pr merge` directly outside that flow.
-9. After merge is complete, move the issue to `Done`.
-
-Rework flow:
-- Re-read the issue and review feedback in full.
-- Update the workpad plan to reflect the new approach.
-- Continue on the PR branch only if it is still open and reusable.
-- If the branch PR is already closed or merged, create a fresh branch from `origin/main` and restart execution from reproduction.
+2. If the issue is `Todo`, move it to `In Progress`.
+3. Inspect the current repo structure and accept it as the intended baseline.
+4. Implement the smallest end-to-end slice that satisfies the issue.
+5. When you materially change code, create a local git commit in the workspace so the result can land back in the operator local checkout.
+6. Validate the exact behavior you changed with focused commands or tests.
+7. For real collection runs and validation output, write archives under `/Users/chenjing/dev/chat-history`, not inside this repo.
+8. If you create a progress comment, keep it short and update the same comment in place.
+9. When the current issue's acceptance criteria are met, move it to `Done`.
 
 Guardrails:
-- Do not leave durable work only in the workspace without commit/push/PR.
-- Do not mark an implementation ticket `Done` without a merged PR unless the ticket is explicitly non-code and the workpad explains why.
-- Do not expand scope silently; create follow-up tickets instead.
+- Do not treat missing historical code, deleted files, or old workspace artifacts as something to restore unless the issue explicitly says so.
+- Do not let GitHub push, PR creation, browser automation, or auth debugging hijack a product implementation ticket.
+- Do not expand scope silently; only create a follow-up ticket when it is necessary and clearly bounded.
 - Do not touch paths outside the workspace except the external archive target `/Users/chenjing/dev/chat-history` when the task explicitly requires real collection output.
-- If blocked by missing non-GitHub auth or tools, write a concise blocker brief in the workpad and move the ticket according to the workflow.
-- If the current workspace was created by an older rsync-based setup and lacks git history, stop active implementation, record the blocker, and wait for a fresh git-backed workspace.
+- Do not rewrite or reset the operator local checkout directly from the workspace; only land changes there through normal git fast-forwarding.
+- Do not spam Linear comments with logs, transcript dumps, repeated validation output, or large handoff notes.
+- If blocked by missing local source data, missing required auth, or missing write permission that the current issue explicitly depends on, write one concise blocker note and stop.
 
 Expected outputs:
 - Source discovery notes: storage paths, formats, caveats, and support level.
@@ -186,4 +165,4 @@ Expected outputs:
 - Clean normalized chat output focused on memory-relevant content, written to `/Users/chenjing/dev/chat-history` for real collection runs.
 - Tests or fixtures that prove parsing and filtering behavior.
 - Operator-facing CLI controls, with TUI added only when it materially improves recurring collection tasks.
-- When appropriate, newly created Linear tickets that capture discovered follow-up work, with the immediate next work placed in `Todo`.
+- When truly needed, one small follow-up Linear ticket that directly continues shipped code work.
