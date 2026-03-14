@@ -19,28 +19,6 @@ observability:
 workspace:
   root: $SYMPHONY_WORKSPACE_ROOT
 hooks:
-  after_create: |
-    set -eu
-    : "${SYMPHONY_LOCAL_REPO_ROOT:?SYMPHONY_LOCAL_REPO_ROOT must be set}"
-
-    git clone --depth 1 "$SYMPHONY_LOCAL_REPO_ROOT" .
-
-    if command -v uv >/dev/null 2>&1 && [ -f pyproject.toml ]; then
-      uv sync
-    fi
-  after_run: |
-    set -eu
-    : "${SYMPHONY_LOCAL_REPO_ROOT:?SYMPHONY_LOCAL_REPO_ROOT must be set}"
-
-    workspace_head="$(git rev-parse HEAD)"
-    local_head="$(git -C "$SYMPHONY_LOCAL_REPO_ROOT" rev-parse HEAD)"
-
-    if [ "$workspace_head" = "$local_head" ]; then
-      exit 0
-    fi
-
-    git -C "$SYMPHONY_LOCAL_REPO_ROOT" fetch "$PWD" HEAD
-    git -C "$SYMPHONY_LOCAL_REPO_ROOT" merge --ff-only FETCH_HEAD
   timeout_ms: 300000
 agent:
   max_concurrent_agents: 1
@@ -54,6 +32,7 @@ codex:
     writableRoots:
       - "__SET_SYMPHONY_WORKSPACE_ROOT__"
       - "__SET_CHAT_ARCHIVE_ROOT__"
+      - "__SET_LOCAL_REPO_ROOT__"
     readOnlyAccess:
       type: fullAccess
     networkAccess: false
@@ -95,7 +74,7 @@ Product intent:
 - Exclude tool calls, MCP invocation noise, internal reasoning traces, and execution artifacts that do not help memory inference.
 
 Repository direction:
-- Treat the current `main` clone as the intended starting point, even if it is minimal.
+- Treat the operator local checkout at `/Users/chenjing/dev/chat-collector` as the intended starting point, even if it is minimal.
 - Do not assume missing old files are corruption or something to recover.
 - If the repo is sparse, scaffold only the minimum code needed for the current issue.
 - Primary code lives under `src/llm_chat_archive`.
@@ -106,13 +85,14 @@ Repository direction:
 - CLI is the primary operator interface; add TUI only when it materially improves recurring collection control.
 
 Source of truth and git rules:
-- The workspace is a real git clone of `origin`; treat that clone as the only place to edit code during the run.
-- The operator local checkout at `/Users/chenjing/dev/chat-collector` is the canonical landing zone for completed code.
-- New workspaces are cloned from that local checkout, and completed local commits should fast-forward back into it.
+- The workspace exists only as a per-issue scratch area for notes and temporary artifacts.
+- Write product code changes directly in the operator local checkout at `/Users/chenjing/dev/chat-collector`.
+- Use the local checkout as the only canonical source of code during the run.
+- Prefer running shell commands from `/Users/chenjing/dev/chat-collector` when inspecting, testing, or editing repository files.
 - Never treat old Symphony workspaces, old Linear attachments, or prior recovery artifacts as canonical source unless the current issue explicitly asks for them.
 - Keep changes in git when practical, but do not let push, PR, auth, or review plumbing become the main scope unless the issue is explicitly about publication.
 - A coding ticket may finish with local commits and clear validation when remote publication is out of scope or unavailable.
-- If the workspace is missing `.git` metadata or has no `origin` remote, record one concise blocker note and stop instead of inventing recovery work.
+- If `/Users/chenjing/dev/chat-collector/.git` is missing, record one concise blocker note and stop instead of inventing recovery work.
 
 Ticket management posture:
 - Treat Linear as an active work queue, not a passive tracker.
@@ -127,7 +107,7 @@ Default posture:
 2. Start every task by determining the current Linear status and following the matching flow below.
 3. Keep Linear comments sparse. Use at most one concise progress comment, updating it in place only when starting, blocked, or done.
 4. Treat the current issue description as the primary scope boundary. Do not invent adjacent recovery or publication work.
-5. Work only in the provided git workspace clone.
+5. Use the scratch workspace only for temporary notes or artifacts, and do repository work directly in `/Users/chenjing/dev/chat-collector`.
 6. Reproduce current behavior when it is needed to guide implementation, not as a ritual.
 7. Final response must report completed actions, validation, and blockers only.
 

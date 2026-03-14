@@ -59,9 +59,11 @@ mkdir -p "$symphony_root" "$SYMPHONY_LOGS_ROOT"
 escaped_slug="$(printf '%s' "$SYMPHONY_LINEAR_PROJECT_SLUG" | sed -e 's/[\\/&]/\\&/g')"
 escaped_workspace_root="$(printf '%s' "$SYMPHONY_WORKSPACE_ROOT" | sed -e 's/[\\/&]/\\&/g')"
 escaped_archive_root="$(printf '%s' "$CHAT_ARCHIVE_ROOT" | sed -e 's/[\\/&]/\\&/g')"
+escaped_local_repo_root="$(printf '%s' "$SYMPHONY_LOCAL_REPO_ROOT" | sed -e 's/[\\/&]/\\&/g')"
 sed -e "s|__SET_SYMPHONY_LINEAR_PROJECT_SLUG__|$escaped_slug|g" \
   -e "s|__SET_SYMPHONY_WORKSPACE_ROOT__|$escaped_workspace_root|g" \
   -e "s|__SET_CHAT_ARCHIVE_ROOT__|$escaped_archive_root|g" \
+  -e "s|__SET_LOCAL_REPO_ROOT__|$escaped_local_repo_root|g" \
   "$workflow_template" > "$rendered_workflow"
 
 if [[ ! -x "$SYMPHONY_SHARED_ROOT/bin/symphony" ]]; then
