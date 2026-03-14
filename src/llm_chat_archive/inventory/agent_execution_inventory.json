@@ -1,0 +1,1013 @@
+{
+  "generated_on": "2026-03-14",
+  "scope": "Market inventory of agentic coding products, split by product plus execution context, to seed follow-up local transcript path research tickets.",
+  "platform_order": [
+    "macOS",
+    "Windows",
+    "Linux"
+  ],
+  "classification": {
+    "execution_context": {
+      "standalone_app": "A desktop app with its own windowing, auth flow, and local app data.",
+      "cli": "A terminal-first agent or coding assistant.",
+      "ide_native": "A first-party editor or IDE where the agent is built into the product.",
+      "ide_extension": "An agent delivered through an IDE plugin, extension, or IDE bridge.",
+      "protocol_hosted": "An agent hosted through another surface or protocol, so both host and agent may persist state.",
+      "remote_cloud_agent": "A remote or delegated agent whose canonical execution happens in vendor-hosted infrastructure.",
+      "browser_workspace": "A browser-hosted development workspace with built-in agent features.",
+      "manager_surface": "A separate control-plane UI for orchestrating or reviewing autonomous agents."
+    },
+    "state_gravity": {
+      "local_first": "The most useful state is likely to live primarily on the local machine.",
+      "hybrid": "Useful state is likely split between local app data and vendor account state.",
+      "cloud_first": "The canonical history probably lives in vendor-hosted systems, with local residue limited to caches or handoff data.",
+      "dual_source": "Both the host surface and the embedded/external agent are likely to persist useful artifacts."
+    },
+    "priority": {
+      "P0": "Immediate follow-up queue: target-now sources or major local-first surfaces with high collector value.",
+      "P1": "Secondary queue: strong candidate local sources or dual-source hosts worth researching after P0.",
+      "P2": "Observe or defer: cloud-first or lower-yield contexts where local residue is uncertain."
+    },
+    "support_track": {
+      "target_now": "Explicitly aligned with the repo's current target-source direction.",
+      "candidate_local_first": "Not a current target source, but a realistic local transcript source worth future collection support.",
+      "candidate_remote": "Primarily cloud or delegated, but still relevant enough to watch for local bridge artifacts."
+    }
+  },
+  "ticket_template_fields": [
+    "queue_key",
+    "product",
+    "vendor",
+    "execution_context",
+    "host_surface",
+    "priority",
+    "support_track",
+    "local_transcript_likelihood",
+    "state_gravity",
+    "path_research_difficulty",
+    "follow_up_title",
+    "follow_up_scope",
+    "doc_path_clues",
+    "notes",
+    "sources"
+  ],
+  "summary": {
+    "entry_count": 33,
+    "priority_counts": {
+      "P0": 11,
+      "P1": 16,
+      "P2": 6
+    },
+    "support_track_counts": {
+      "target_now": 13,
+      "candidate_local_first": 16,
+      "candidate_remote": 4
+    }
+  },
+  "sources": [
+    {
+      "id": "openai_codex_plan_help",
+      "title": "Using Codex with your ChatGPT plan",
+      "url": "https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan",
+      "notes": "OpenAI overview covering Codex CLI, IDE extension, app, cloud delegation, GitHub review, and Slack entry points."
+    },
+    {
+      "id": "openai_codex_intro",
+      "title": "Introducing Codex",
+      "url": "https://openai.com/index/introducing-codex/",
+      "notes": "OpenAI launch post for the cloud-based Codex agent."
+    },
+    {
+      "id": "anthropic_claude_code_overview",
+      "title": "Claude Code overview",
+      "url": "https://docs.anthropic.com/en/docs/claude-code/overview",
+      "notes": "Anthropic overview for Claude Code as a terminal-native agent."
+    },
+    {
+      "id": "anthropic_claude_code_ide",
+      "title": "Add Claude Code to your IDE",
+      "url": "https://docs.anthropic.com/en/docs/claude-code/ide-integrations",
+      "notes": "Anthropic IDE integration guide for VS Code-family and JetBrains."
+    },
+    {
+      "id": "anthropic_claude_desktop_install",
+      "title": "Installing Claude Desktop",
+      "url": "https://support.claude.com/en/articles/10065433-installing-claude-for-desktop",
+      "notes": "Claude Desktop install and extension overview."
+    },
+    {
+      "id": "anthropic_cowork",
+      "title": "Get started with Cowork",
+      "url": "https://support.claude.com/en/articles/13345190-getting-started-with-cowork",
+      "notes": "Claude Desktop Cowork preview runs directly on the computer in an isolated VM."
+    },
+    {
+      "id": "google_gemini_cli",
+      "title": "Gemini CLI",
+      "url": "https://developers.google.com/gemini-code-assist/docs/gemini-cli",
+      "notes": "Google overview for Gemini CLI and its relationship to IDE agent mode."
+    },
+    {
+      "id": "google_gemini_supported_interfaces",
+      "title": "Supported languages, IDEs, and interfaces",
+      "url": "https://developers.google.com/gemini-code-assist/docs/supported-languages",
+      "notes": "Supported IDE, CLI, and infrastructure interfaces for Gemini Code Assist."
+    },
+    {
+      "id": "google_gemini_agent_mode",
+      "title": "Use the Gemini Code Assist agent mode",
+      "url": "https://developers.google.com/gemini-code-assist/docs/use-agentic-chat-pair-programmer",
+      "notes": "Google guide for IDE agent mode backed by Gemini CLI."
+    },
+    {
+      "id": "cursor_chat_overview",
+      "title": "Cursor chat overview",
+      "url": "https://docs.cursor.com/en/chat/overview",
+      "notes": "Cursor editor chat and agent surface overview."
+    },
+    {
+      "id": "cursor_cli",
+      "title": "Cursor CLI",
+      "url": "https://cursor.com/cli",
+      "notes": "Cursor terminal agent and automation surface."
+    },
+    {
+      "id": "cursor_background_agents",
+      "title": "Background Agents",
+      "url": "https://docs.cursor.com/en/background-agent",
+      "notes": "Cursor remote background agents, data-retention, and GitHub-backed execution details."
+    },
+    {
+      "id": "windsurf_welcome",
+      "title": "Welcome to Windsurf",
+      "url": "https://docs.windsurf.com/",
+      "notes": "Windsurf native editor overview and install docs."
+    },
+    {
+      "id": "windsurf_memories",
+      "title": "Memories",
+      "url": "https://docs.windsurf.com/context-awareness/memories",
+      "notes": "Windsurf memories and rules documentation, including filesystem locations."
+    },
+    {
+      "id": "github_copilot_features",
+      "title": "GitHub Copilot features",
+      "url": "https://docs.github.com/en/copilot/get-started/github-copilot-features",
+      "notes": "GitHub overview covering edit mode and agent mode in IDEs."
+    },
+    {
+      "id": "github_copilot_cli",
+      "title": "About GitHub Copilot CLI",
+      "url": "https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-copilot-cli",
+      "notes": "GitHub Copilot CLI overview, modes, and ACP support."
+    },
+    {
+      "id": "github_copilot_skills",
+      "title": "About agent skills",
+      "url": "https://docs.github.com/en/copilot/concepts/agents/about-agent-skills",
+      "notes": "GitHub skills locations for coding agent, CLI, and VS Code agent mode."
+    },
+    {
+      "id": "github_copilot_coding_agent",
+      "title": "About GitHub Copilot coding agent",
+      "url": "https://docs.github.com/en/copilot/concepts/coding-agent/coding-agent",
+      "notes": "GitHub-hosted remote coding agent overview."
+    },
+    {
+      "id": "augment_agent",
+      "title": "Using Agent",
+      "url": "https://docs.augmentcode.com/using-augment/agent",
+      "notes": "Augment IDE agent, checkpoints, and local memories."
+    },
+    {
+      "id": "augment_auggie_cli",
+      "title": "Introducing Auggie CLI",
+      "url": "https://docs.augmentcode.com/cli/overview",
+      "notes": "Auggie CLI overview and terminal workflow."
+    },
+    {
+      "id": "augment_remote_agent",
+      "title": "Remote Agent environments",
+      "url": "https://docs.augmentcode.com/using-augment/remote-agent-environment",
+      "notes": "Augment remote agents running in cloud-hosted environments."
+    },
+    {
+      "id": "amp_manual",
+      "title": "Owner's Manual",
+      "url": "https://ampcode.com/manual",
+      "notes": "Amp CLI manual, IDE connection model, and thread-sharing guidance."
+    },
+    {
+      "id": "amp_extension_shutdown",
+      "title": "The Coding Agent Is Dead",
+      "url": "https://ampcode.com/news/the-coding-agent-is-dead",
+      "notes": "Amp announcement that editor extensions would self-destruct on March 5, 2026."
+    },
+    {
+      "id": "continue_install",
+      "title": "Install",
+      "url": "https://docs.continue.dev/ide-extensions/install",
+      "notes": "Continue IDE installation guide."
+    },
+    {
+      "id": "continue_config",
+      "title": "How to Configure Continue",
+      "url": "https://docs.continue.dev/customize/deep-dives/configuration",
+      "notes": "Continue local YAML config location."
+    },
+    {
+      "id": "continue_agent_mode",
+      "title": "Quick Start",
+      "url": "https://docs.continue.dev/ide-extensions/agent/quick-start",
+      "notes": "Continue IDE agent mode quick start."
+    },
+    {
+      "id": "continue_cli",
+      "title": "How to Use Continue CLI (cn)",
+      "url": "https://docs.continue.dev/guides/cli",
+      "notes": "Continue terminal agent guide."
+    },
+    {
+      "id": "cline_overview",
+      "title": "What is Cline?",
+      "url": "https://docs.cline.bot/introduction/overview",
+      "notes": "Cline overview for editor and terminal surfaces."
+    },
+    {
+      "id": "cline_cli",
+      "title": "Getting Started",
+      "url": "https://docs.cline.bot/cline-cli/getting-started",
+      "notes": "Cline CLI interactive and headless workflows."
+    },
+    {
+      "id": "aider_docs",
+      "title": "Aider Documentation",
+      "url": "https://aider.chat/docs/",
+      "notes": "Aider terminal-first documentation with git-centric workflows."
+    },
+    {
+      "id": "roo_docs",
+      "title": "Roo Code Docs",
+      "url": "https://docs.roocode.com/",
+      "notes": "Roo extension and cloud product overview."
+    },
+    {
+      "id": "roo_cloud",
+      "title": "Roo Code Cloud",
+      "url": "https://roocode.com/cloud",
+      "notes": "Roo cloud agents and integrations across web, Slack, GitHub, and Linear."
+    },
+    {
+      "id": "zed_ai_overview",
+      "title": "Overview",
+      "url": "https://zed.dev/docs/ai/overview",
+      "notes": "Zed AI overview, agent panel, text threads, and external agent support."
+    },
+    {
+      "id": "zed_ai_privacy",
+      "title": "AI Improvement",
+      "url": "https://zed.dev/docs/ai/ai-improvement",
+      "notes": "Zed AI data retention and privacy behavior."
+    },
+    {
+      "id": "zed_acp",
+      "title": "Agent Client Protocol",
+      "url": "https://zed.dev/acp",
+      "notes": "Zed ACP overview for bringing external agents into Zed."
+    },
+    {
+      "id": "replit_agent",
+      "title": "Replit Agent",
+      "url": "https://docs.replit.com/replitai/agent",
+      "notes": "Replit Agent workspace, checkpoints, progress, and modes."
+    },
+    {
+      "id": "antigravity_site",
+      "title": "Antigravity IDE",
+      "url": "https://antigravityaiide.com/",
+      "notes": "Product page describing Editor View and Manager View. Source provenance should be re-checked during detailed path work."
+    },
+    {
+      "id": "antigravity_blog",
+      "title": "Introducing Google Antigravity",
+      "url": "https://antigravityide.org/blog/introducing-antigravity/",
+      "notes": "Product blog explaining Antigravity Editor and Manager surfaces. Treat domain provenance as a detail to verify later."
+    }
+  ],
+  "entries": [
+    {
+      "queue_key": "codex_cli",
+      "product": "Codex",
+      "vendor": "OpenAI",
+      "execution_context": "cli",
+      "host_surface": "terminal",
+      "lifecycle_status": "active",
+      "support_track": "target_now",
+      "local_transcript_likelihood": "high",
+      "state_gravity": "hybrid",
+      "path_research_difficulty": "medium",
+      "priority": "P0",
+      "follow_up_title": "Investigate Codex CLI local transcript and session artifacts",
+      "follow_up_scope": "Check per-user session history, auth state, approvals, skills, worktree metadata, and repo-local breadcrumbs.",
+      "notes": "Primary OpenAI coding surface for terminal use.",
+      "sources": [
+        "openai_codex_plan_help"
+      ]
+    },
+    {
+      "queue_key": "codex_ide_extension",
+      "product": "Codex",
+      "vendor": "OpenAI",
+      "execution_context": "ide_extension",
+      "host_surface": "VS Code, Cursor, Windsurf",
+      "lifecycle_status": "active",
+      "support_track": "target_now",
+      "local_transcript_likelihood": "high",
+      "state_gravity": "hybrid",
+      "path_research_difficulty": "medium",
+      "priority": "P0",
+      "follow_up_title": "Investigate Codex IDE extension local transcript artifacts",
+      "follow_up_scope": "Inspect extension state, shared session history, IDE bridge files, and diff or selection-context handoff.",
+      "doc_path_clues": [
+        "Observed macOS shared Codex-family transcript root: ~/.codex/, with IDE-extension rollouts best identified by session_meta.payload.originator == \"codex_vscode\" instead of relying on state_5.sqlite.threads.source alone.",
+        "Observed VS Code host roots: ~/Library/Application Support/Code/User/globalStorage/state.vscdb, ~/Library/Application Support/Code/User/workspaceStorage/<workspace-id>/state.vscdb, and ~/Library/Application Support/Code/logs/<timestamp>/window*/exthost/openai.chatgpt/Codex.log.",
+        "Observed Cursor host roots: ~/Library/Application Support/Cursor/User/workspaceStorage/<workspace-id>/state.vscdb and ~/Library/Application Support/Cursor/logs/<timestamp>/window*/exthost/openai.chatgpt/Codex.log; no Cursor chatSessions or agentSessions.model.cache rows were observed on this machine.",
+        "Observed bridge path referenced by VS Code and Cursor logs: ~/Library/Application Support/com.openai.chat/app_pairing_extensions/<Host>-<uuid>, but the directory was empty at inspection time.",
+        "Detailed note: docs/research/codex-ide-extension-local-artifacts.md"
+      ],
+      "notes": "macOS inspection found shared transcript storage in ~/.codex/ plus per-editor host state in VS Code and Cursor. Host caches and prompt history are useful for attribution and breadcrumbs, but clean IDE transcript extraction should start from ~/.codex rollout JSONL filtered by originator == \"codex_vscode\" and then exclude tool and reasoning noise.",
+      "sources": [
+        "openai_codex_plan_help"
+      ]
+    },
+    {
+      "queue_key": "codex_app",
+      "product": "Codex",
+      "vendor": "OpenAI",
+      "execution_context": "standalone_app",
+      "host_surface": "Codex app for macOS and Windows",
+      "lifecycle_status": "active",
+      "support_track": "target_now",
+      "local_transcript_likelihood": "medium",
+      "state_gravity": "hybrid",
+      "path_research_difficulty": "high",
+      "priority": "P0",
+      "follow_up_title": "Investigate Codex app local threads and worktree metadata",
+      "follow_up_scope": "Inspect app-level threads, skills, automations, worktree metadata, and platform-specific support files.",
+      "doc_path_clues": [
+        "Observed macOS app-shell roots: ~/Library/Application Support/Codex/, ~/Library/Logs/com.openai.codex/, ~/Library/Preferences/com.openai.codex.plist, and ~/Library/Caches/com.openai.codex/.",
+        "Observed macOS shared Codex-family root for Desktop sessions: ~/.codex/, with rollout JSONL under ~/.codex/sessions/YYYY/MM/DD/rollout-*.jsonl and thread metadata in ~/.codex/state_5.sqlite.",
+        "Observed app-shell Local Storage is LevelDB plus generic SQLite telemetry and browser state, while canonical transcript rows still live in the shared ~/.codex root.",
+        "Detailed note: docs/research/codex-app-local-artifacts.md"
+      ],
+      "notes": "macOS inspection found a split model: the standalone app keeps Electron support files under ~/Library/... but stores Desktop transcript, thread, git, skills, and automation metadata in the shared ~/.codex root alongside other Codex execution contexts.",
+      "sources": [
+        "openai_codex_plan_help"
+      ]
+    },
+    {
+      "queue_key": "codex_cloud",
+      "product": "Codex",
+      "vendor": "OpenAI",
+      "execution_context": "remote_cloud_agent",
+      "host_surface": "Codex web, ChatGPT sidebar, Slack, GitHub",
+      "lifecycle_status": "active",
+      "support_track": "target_now",
+      "local_transcript_likelihood": "low",
+      "state_gravity": "cloud_first",
+      "path_research_difficulty": "high",
+      "priority": "P2",
+      "follow_up_title": "Investigate Codex cloud handoff artifacts on local machines",
+      "follow_up_scope": "Look for local bridge artifacts only: browser caches, Slack or GitHub handoff markers, downloaded patches, and app sync state.",
+      "notes": "Canonical task execution happens in isolated cloud sandboxes.",
+      "sources": [
+        "openai_codex_plan_help",
+        "openai_codex_intro"
+      ]
+    },
+    {
+      "queue_key": "claude_code_cli",
+      "product": "Claude Code",
+      "vendor": "Anthropic",
+      "execution_context": "cli",
+      "host_surface": "terminal",
+      "lifecycle_status": "active",
+      "support_track": "target_now",
+      "local_transcript_likelihood": "high",
+      "state_gravity": "hybrid",
+      "path_research_difficulty": "medium",
+      "priority": "P0",
+      "follow_up_title": "Investigate Claude Code CLI local transcript and config artifacts",
+      "follow_up_scope": "Inspect per-user session history, auth state, config, slash-command metadata, approvals, and repo-local breadcrumbs.",
+      "doc_path_clues": [
+        "Observed macOS shared roots: ~/.claude/ and ~/.claude.json.",
+        "Strongest transcript candidate observed on macOS: ~/.claude/projects/<encoded-project-path>/<session-uuid>.jsonl.",
+        "Observed message rows mix clean text with tool_use, tool_result, thinking, and progress events, so role-only filtering is unsafe.",
+        "Detailed note: docs/research/claude-code-cli-local-artifacts.md"
+      ],
+      "notes": "Main Anthropic coding surface; terminal-native and scriptable. Detailed macOS path work found a shared Claude-family root, with session JSONL under ~/.claude/projects and approval or trust state split across ~/.claude.json plus settings files.",
+      "sources": [
+        "anthropic_claude_code_overview"
+      ]
+    },
+    {
+      "queue_key": "claude_code_ide",
+      "product": "Claude Code",
+      "vendor": "Anthropic",
+      "execution_context": "ide_extension",
+      "host_surface": "VS Code-family and JetBrains IDEs",
+      "lifecycle_status": "active",
+      "support_track": "target_now",
+      "local_transcript_likelihood": "high",
+      "state_gravity": "hybrid",
+      "path_research_difficulty": "medium",
+      "priority": "P0",
+      "follow_up_title": "Investigate Claude Code IDE bridge artifacts",
+      "follow_up_scope": "Check auto-installed extension state, IDE diff integration state, selection-context handoff, and external-terminal /ide bridge files.",
+      "notes": "Claude Code can be launched from the IDE terminal or attached from an external terminal, which may create separate state.",
+      "sources": [
+        "anthropic_claude_code_ide"
+      ]
+    },
+    {
+      "queue_key": "claude_desktop",
+      "product": "Claude Desktop",
+      "vendor": "Anthropic",
+      "execution_context": "standalone_app",
+      "host_surface": "Claude Desktop",
+      "lifecycle_status": "beta",
+      "support_track": "candidate_local_first",
+      "local_transcript_likelihood": "medium",
+      "state_gravity": "hybrid",
+      "path_research_difficulty": "high",
+      "priority": "P1",
+      "follow_up_title": "Investigate Claude Desktop chat, extension, and Cowork artifacts",
+      "follow_up_scope": "Separate normal desktop chat state from Cowork preview state, desktop extensions, and any VM handoff artifacts.",
+      "notes": "Desktop extensions and Cowork preview likely add storage patterns beyond ordinary chat history inside the same app family.",
+      "sources": [
+        "anthropic_claude_desktop_install",
+        "anthropic_cowork"
+      ]
+    },
+    {
+      "queue_key": "gemini_cli",
+      "product": "Gemini CLI",
+      "vendor": "Google",
+      "execution_context": "cli",
+      "host_surface": "terminal and Cloud Shell",
+      "lifecycle_status": "active",
+      "support_track": "target_now",
+      "local_transcript_likelihood": "high",
+      "state_gravity": "hybrid",
+      "path_research_difficulty": "medium",
+      "priority": "P0",
+      "follow_up_title": "Investigate Gemini CLI local transcript and cache artifacts",
+      "follow_up_scope": "Inspect terminal session state, config, memory commands, MCP state, auth material, and repo-local breadcrumbs.",
+      "doc_path_clues": [
+        "Observed macOS shared Gemini-family root: ~/.gemini/, with CLI session files under ~/.gemini/tmp/<project-hash>/chats/session-*.json.",
+        "Observed companion per-project stores: ~/.gemini/tmp/<project-hash>/logs.json for prompt-history style user logs and ~/.gemini/history/<project-hash>/ as a shadow git checkpoint repository; both are non-transcript sidecars.",
+        "Observed shared config and auth-adjacent files: ~/.gemini/settings.json, ~/.gemini/google_accounts.json, encrypted ~/.gemini/mcp-oauth-tokens-v2.json, legacy ~/.gemini/oauth_creds.json, and ~/.gemini/GEMINI.md; no repo-local .gemini/ or GEMINI.md existed in the target repo.",
+        "Observed ~/Library/Application Support/cloud-code/ on macOS, but only install or executable artifacts were present on this machine and no transcript-bearing cache was confirmed there.",
+        "Detailed note: docs/research/gemini-cli-local-artifacts.md"
+      ],
+      "notes": "macOS inspection found Gemini CLI transcript JSON inside a shared ~/.gemini/ namespace, specifically under per-project hashed temp roots. Clean extraction should start from session-*.json and keep user or gemini text while excluding thoughts, toolCalls, token counters, logs.json prompt history, checkpoint shadow repos, and hook or MCP execution residue. Code Assist sharing is partial on this host: config and auth state are clearly shared at ~/.gemini/, but transcript storage under cloud-code was not confirmed.",
+      "sources": [
+        "google_gemini_cli"
+      ]
+    },
+    {
+      "queue_key": "gemini_code_assist_ide",
+      "product": "Gemini Code Assist",
+      "vendor": "Google",
+      "execution_context": "ide_extension",
+      "host_surface": "VS Code, JetBrains, Android Studio, Cloud Shell",
+      "lifecycle_status": "preview",
+      "support_track": "target_now",
+      "local_transcript_likelihood": "high",
+      "state_gravity": "hybrid",
+      "path_research_difficulty": "medium",
+      "priority": "P0",
+      "follow_up_title": "Investigate Gemini Code Assist IDE agent state",
+      "follow_up_scope": "Inspect extension chat state, agent-mode files, preview-features settings, and Code Assist caches across supported IDEs.",
+      "doc_path_clues": [
+        "Google docs mention macOS cache locations under ~/Library/Application Support/cloud-code and ~/Library/Application Support/google-vscode-extension.",
+        "Observed macOS auth root: ~/Library/Application Support/google-vscode-extension/auth/ with credentials.json and application_default_credentials.json, but no transcript-bearing files were present there on this host.",
+        "Observed macOS install root: ~/Library/Application Support/cloud-code/ with install_id.txt plus bundled cloudcode_cli executable, but no local transcript JSON, SQLite, IndexedDB, or LevelDB was confirmed there.",
+        "Observed VS Code host state in ~/Library/Application Support/Code/User/globalStorage/state.vscdb under key google.geminicodeassist, with agent-mode and lifecycle fields including newChatIsAgent, lastChatModeWasAgent, geminicodeassist.hasRunOnce, geminicodeassist.lastOpenedVersion, and cloudcode.session-index.",
+        "Observed VS Code workspace state in ~/Library/Application Support/Code/User/workspaceStorage/<workspace-id>/state.vscdb under keys workbench.view.extension.geminiChat.state, workbench.view.extension.geminiOutline.state, chat.ChatSessionStore.index, and memento/webviewView.cloudcode.gemini.chatView, but sampled chatSessions/* files belonged to GitHub Copilot rather than Gemini.",
+        "Observed bundled extension backend at ~/.vscode/extensions/google.geminicodeassist-*/agent/a2a-server.mjs vendoring Gemini CLI-style shared config paths under ~/.gemini/ including settings.json, google_accounts.json, oauth_creds.json, mcp-oauth-tokens-v2.json, GEMINI.md, and .geminiignore.",
+        "Negative macOS results: no named Gemini or Cloud Code logs were found under ~/Library/Application Support/Code/logs/, and no JetBrains or Android Studio Application Support roots existed on this host.",
+        "Detailed note: docs/research/gemini-code-assist-ide-local-artifacts.md"
+      ],
+      "notes": "macOS inspection found Gemini Code Assist IDE auth and install roots under ~/Library/Application Support/google-vscode-extension/ and ~/Library/Application Support/cloud-code/, plus Gemini-specific VS Code state in globalStorage and workspaceStorage state.vscdb. The strongest confirmed local structures were auth JSON and state key spaces like google.geminicodeassist and chat.ChatSessionStore.index; sampled chatSessions files were owned by GitHub Copilot rather than Gemini, so durable local IDE transcript storage was not confirmed on this host. Bundled agent code directly reuses Gemini CLI-style ~/.gemini/ config and memory primitives, which supports shared non-transcript state with Gemini CLI even though transcript persistence appears separate, remote, or cleanup-prone here.",
+      "sources": [
+        "google_gemini_cli",
+        "google_gemini_supported_interfaces",
+        "google_gemini_agent_mode"
+      ]
+    },
+    {
+      "queue_key": "cursor_desktop_agent",
+      "product": "Cursor",
+      "vendor": "Anysphere",
+      "execution_context": "ide_native",
+      "host_surface": "Cursor editor",
+      "lifecycle_status": "active",
+      "support_track": "target_now",
+      "local_transcript_likelihood": "high",
+      "state_gravity": "hybrid",
+      "path_research_difficulty": "medium",
+      "priority": "P0",
+      "follow_up_title": "Investigate Cursor editor chat and agent session artifacts",
+      "follow_up_scope": "Inspect chat history, project memories, exports, account state, and per-workspace session metadata.",
+      "doc_path_clues": [
+        "Observed macOS shared Cursor-family roots: ~/.cursor/ and ~/Library/Application Support/Cursor/.",
+        "Strongest native-editor session store observed on macOS: ~/Library/Application Support/Cursor/User/workspaceStorage/<workspace-id>/state.vscdb, with high-signal keys composer.composerData, aiService.prompts, aiService.generations, and workbench.backgroundComposer.workspacePersistentData.",
+        "Observed workspace mapping file: ~/Library/Application Support/Cursor/User/workspaceStorage/<workspace-id>/workspace.json; observed session-end metadata log: ~/Library/Application Support/Cursor/logs/<timestamp>/window1/output_<timestamp>/cursor.hooks.log.",
+        "Observed memory-related global keys in ~/Library/Application Support/Cursor/User/globalStorage/state.vscdb: cursor/memoriesEnabled and cursor/pendingMemories, but no concrete memory payloads were found; ~/.cursor/ai-tracking/ai-code-tracking.db had relevant schema but zero conversation rows on this host.",
+        "Detailed note: docs/research/cursor-editor-local-artifacts.md"
+      ],
+      "notes": "macOS inspection found native-editor metadata inside shared Cursor roots also used by Cursor CLI, with the best current signal in workspaceStorage state.vscdb plus cursor.hooks.log. Full bidirectional transcript files were not observed; user-side prompt and generation caches exist, while extension state inside the Cursor host must be excluded from Cursor-native collection.",
+      "sources": [
+        "cursor_chat_overview"
+      ]
+    },
+    {
+      "queue_key": "cursor_cli",
+      "product": "Cursor CLI",
+      "vendor": "Anysphere",
+      "execution_context": "cli",
+      "host_surface": "terminal and automation scripts",
+      "lifecycle_status": "active",
+      "support_track": "target_now",
+      "local_transcript_likelihood": "high",
+      "state_gravity": "hybrid",
+      "path_research_difficulty": "medium",
+      "priority": "P0",
+      "follow_up_title": "Investigate Cursor CLI local transcript artifacts",
+      "follow_up_scope": "Inspect CLI session history, model selection state, headless-run logs, and any IDE-connect bridge files.",
+      "notes": "Separate terminal-native surface with automation and headless workflows.",
+      "sources": [
+        "cursor_cli"
+      ]
+    },
+    {
+      "queue_key": "cursor_background_agents",
+      "product": "Cursor Background Agents",
+      "vendor": "Anysphere",
+      "execution_context": "remote_cloud_agent",
+      "host_surface": "Cursor sidebar, web, and mobile",
+      "lifecycle_status": "active",
+      "support_track": "target_now",
+      "local_transcript_likelihood": "medium",
+      "state_gravity": "cloud_first",
+      "path_research_difficulty": "high",
+      "priority": "P2",
+      "follow_up_title": "Investigate Cursor background-agent local handoff artifacts",
+      "follow_up_scope": "Inspect only local residue: cached agent lists, follow-up history, downloaded diffs, and handoff metadata from desktop to web or mobile.",
+      "notes": "Remote agents run in vendor-hosted machines and require at least short-term data retention on the service side.",
+      "sources": [
+        "cursor_background_agents"
+      ]
+    },
+    {
+      "queue_key": "windsurf_editor_cascade",
+      "product": "Windsurf",
+      "vendor": "Codeium",
+      "execution_context": "ide_native",
+      "host_surface": "Windsurf editor with Cascade",
+      "lifecycle_status": "active",
+      "support_track": "candidate_local_first",
+      "local_transcript_likelihood": "high",
+      "state_gravity": "hybrid",
+      "path_research_difficulty": "medium",
+      "priority": "P0",
+      "follow_up_title": "Investigate Windsurf editor memories and agent session artifacts",
+      "follow_up_scope": "Inspect native editor chat state, config roots, memories, rules, account state, and repo-level metadata.",
+      "doc_path_clues": [
+        "Docs mention the Windsurf config root ~/.codeium/windsurf and memories under ~/.codeium/windsurf/memories on macOS or Linux.",
+        "Observed macOS global Windsurf root: ~/.codeium/windsurf/, containing only mcp_config.json and an empty skills/ directory on this host.",
+        "Observed repo-level Windsurf metadata root: <repo>/.windsurf/, with only an empty skills/ directory found under /Users/chenjing/dev/이력서/.windsurf during inspection.",
+        "Negative result on this macOS host: no ~/.codeium/windsurf/memories, no ~/.codeium/windsurf/global_rules.md, and no ~/Library/Application Support/Windsurf root were present.",
+        "Detailed note: docs/research/windsurf-editor-cascade-local-artifacts.md"
+      ],
+      "notes": "macOS inspection confirmed Windsurf-specific config and repo metadata scaffolding under ~/.codeium/windsurf and <repo>/.windsurf, but found no transcript-bearing store, message index, or account cache on this machine. The only populated file was ~/.codeium/windsurf/mcp_config.json with an empty mcpServers object, so current collector work should treat Windsurf support as path-gated until a host with populated memories or editor state is available.",
+      "sources": [
+        "windsurf_welcome",
+        "windsurf_memories"
+      ]
+    },
+    {
+      "queue_key": "github_copilot_ide_agent_mode",
+      "product": "GitHub Copilot",
+      "vendor": "GitHub",
+      "execution_context": "ide_extension",
+      "host_surface": "VS Code and JetBrains IDEs",
+      "lifecycle_status": "preview",
+      "support_track": "candidate_local_first",
+      "local_transcript_likelihood": "medium",
+      "state_gravity": "hybrid",
+      "path_research_difficulty": "high",
+      "priority": "P1",
+      "follow_up_title": "Investigate GitHub Copilot IDE agent-mode artifacts",
+      "follow_up_scope": "Check IDE chat or session files, agent-mode state, local skills or custom instructions, and VS Code versus JetBrains differences.",
+      "notes": "Agent mode is local IDE pairing, but rollout and feature parity still vary by surface.",
+      "sources": [
+        "github_copilot_features",
+        "github_copilot_skills"
+      ]
+    },
+    {
+      "queue_key": "github_copilot_cli",
+      "product": "GitHub Copilot CLI",
+      "vendor": "GitHub",
+      "execution_context": "cli",
+      "host_surface": "terminal and ACP clients",
+      "lifecycle_status": "preview",
+      "support_track": "candidate_local_first",
+      "local_transcript_likelihood": "high",
+      "state_gravity": "hybrid",
+      "path_research_difficulty": "medium",
+      "priority": "P1",
+      "follow_up_title": "Investigate GitHub Copilot CLI local transcript artifacts",
+      "follow_up_scope": "Inspect CLI history, trusted-directory metadata, autopilot state, custom agents, and personal-skill directories.",
+      "doc_path_clues": [
+        "GitHub docs mention personal skills in ~/.copilot/skills or ~/.claude/skills."
+      ],
+      "notes": "Interactive, programmatic, and autopilot modes all share the same terminal-native surface.",
+      "sources": [
+        "github_copilot_cli",
+        "github_copilot_skills"
+      ]
+    },
+    {
+      "queue_key": "github_copilot_coding_agent",
+      "product": "GitHub Copilot coding agent",
+      "vendor": "GitHub",
+      "execution_context": "remote_cloud_agent",
+      "host_surface": "GitHub Issues, PRs, agents page, GitHub CLI",
+      "lifecycle_status": "active",
+      "support_track": "candidate_remote",
+      "local_transcript_likelihood": "low",
+      "state_gravity": "cloud_first",
+      "path_research_difficulty": "high",
+      "priority": "P2",
+      "follow_up_title": "Investigate local handoff artifacts for GitHub Copilot coding agent",
+      "follow_up_scope": "Focus on local session viewers, GitHub CLI caches, and any files created when opening or taking over cloud agent sessions.",
+      "notes": "Canonical work happens in GitHub-hosted ephemeral environments.",
+      "sources": [
+        "github_copilot_coding_agent"
+      ]
+    },
+    {
+      "queue_key": "augment_ide_agent",
+      "product": "Augment",
+      "vendor": "Augment Code",
+      "execution_context": "ide_extension",
+      "host_surface": "VS Code and JetBrains IDEs",
+      "lifecycle_status": "active",
+      "support_track": "candidate_local_first",
+      "local_transcript_likelihood": "high",
+      "state_gravity": "hybrid",
+      "path_research_difficulty": "medium",
+      "priority": "P1",
+      "follow_up_title": "Investigate Augment IDE agent checkpoints and memories",
+      "follow_up_scope": "Inspect panel chat state, checkpoints, local memories, sync state, and local versus remote context-engine artifacts.",
+      "notes": "Agent, Agent Auto, checkpoints, and local memories imply meaningful local residue plus cloud account state.",
+      "sources": [
+        "augment_agent"
+      ]
+    },
+    {
+      "queue_key": "augment_auggie_cli",
+      "product": "Auggie CLI",
+      "vendor": "Augment Code",
+      "execution_context": "cli",
+      "host_surface": "terminal",
+      "lifecycle_status": "beta",
+      "support_track": "candidate_local_first",
+      "local_transcript_likelihood": "high",
+      "state_gravity": "hybrid",
+      "path_research_difficulty": "medium",
+      "priority": "P1",
+      "follow_up_title": "Investigate Auggie CLI local transcript and task artifacts",
+      "follow_up_scope": "Inspect interactive session state, print-mode outputs, MCP state, task-manager metadata, and auth artifacts.",
+      "doc_path_clues": [
+        "Augment docs mention task-manager data under ~/.augment."
+      ],
+      "notes": "Terminal agent backed by the same context engine as the IDE plugins.",
+      "sources": [
+        "augment_auggie_cli"
+      ]
+    },
+    {
+      "queue_key": "augment_remote_agent",
+      "product": "Augment Remote Agent",
+      "vendor": "Augment Code",
+      "execution_context": "remote_cloud_agent",
+      "host_surface": "Augment remote-agent environment",
+      "lifecycle_status": "active",
+      "support_track": "candidate_remote",
+      "local_transcript_likelihood": "low",
+      "state_gravity": "cloud_first",
+      "path_research_difficulty": "high",
+      "priority": "P2",
+      "follow_up_title": "Investigate local bridge artifacts for Augment Remote Agent",
+      "follow_up_scope": "Focus on environment selection metadata, remote-agent launch state, downloaded results, and editor handoff breadcrumbs.",
+      "notes": "Each remote agent runs in its own secure cloud environment.",
+      "sources": [
+        "augment_remote_agent"
+      ]
+    },
+    {
+      "queue_key": "amp_cli",
+      "product": "Amp",
+      "vendor": "Amp",
+      "execution_context": "cli",
+      "host_surface": "terminal",
+      "lifecycle_status": "active",
+      "support_track": "candidate_local_first",
+      "local_transcript_likelihood": "high",
+      "state_gravity": "hybrid",
+      "path_research_difficulty": "medium",
+      "priority": "P1",
+      "follow_up_title": "Investigate Amp CLI threads and local session artifacts",
+      "follow_up_scope": "Inspect thread history, permission rules, account state, command history, and repo-local breadcrumbs.",
+      "notes": "As of 2026-03-14, Amp's current primary surface is the CLI after the editor-extension shutdown announced for 2026-03-05.",
+      "sources": [
+        "amp_manual",
+        "amp_extension_shutdown"
+      ]
+    },
+    {
+      "queue_key": "amp_cli_ide_connected",
+      "product": "Amp",
+      "vendor": "Amp",
+      "execution_context": "protocol_hosted",
+      "host_surface": "JetBrains, Neovim, VS Code-family editors, and Zed",
+      "lifecycle_status": "active",
+      "support_track": "candidate_local_first",
+      "local_transcript_likelihood": "medium",
+      "state_gravity": "dual_source",
+      "path_research_difficulty": "high",
+      "priority": "P1",
+      "follow_up_title": "Investigate Amp IDE-connected dual-source artifacts",
+      "follow_up_scope": "Inspect both Amp CLI state and host-editor bridge state created by ide-connect or equivalent attachment flows.",
+      "notes": "CLI-to-editor bridging can create two useful artifact sources: Amp-native threads and host-editor session traces.",
+      "sources": [
+        "amp_manual",
+        "amp_extension_shutdown"
+      ]
+    },
+    {
+      "queue_key": "continue_ide_agent",
+      "product": "Continue",
+      "vendor": "Continue",
+      "execution_context": "ide_extension",
+      "host_surface": "VS Code and JetBrains IDEs",
+      "lifecycle_status": "active",
+      "support_track": "candidate_local_first",
+      "local_transcript_likelihood": "high",
+      "state_gravity": "hybrid",
+      "path_research_difficulty": "medium",
+      "priority": "P1",
+      "follow_up_title": "Investigate Continue IDE agent state",
+      "follow_up_scope": "Inspect extension chat state, agent-mode state, local YAML config usage, hub-config state, and per-workspace metadata.",
+      "doc_path_clues": [
+        "Continue docs mention local user config in ~/.continue/config.yaml."
+      ],
+      "notes": "Continue's IDE agent mode sits beside chat, edit, and autocomplete workflows, so the extension is the main collector target for the product family.",
+      "sources": [
+        "continue_install",
+        "continue_config",
+        "continue_agent_mode"
+      ]
+    },
+    {
+      "queue_key": "continue_cli",
+      "product": "Continue CLI",
+      "vendor": "Continue",
+      "execution_context": "cli",
+      "host_surface": "terminal, TUI, and headless workflows",
+      "lifecycle_status": "active",
+      "support_track": "candidate_local_first",
+      "local_transcript_likelihood": "high",
+      "state_gravity": "hybrid",
+      "path_research_difficulty": "medium",
+      "priority": "P1",
+      "follow_up_title": "Investigate Continue CLI local transcript artifacts",
+      "follow_up_scope": "Inspect interactive TUI session state, headless outputs, config selection state, and local agent metadata.",
+      "doc_path_clues": [
+        "Continue docs mention local user config in ~/.continue/config.yaml."
+      ],
+      "notes": "Continue CLI is the same product family as the IDE extensions, but its terminal-native state should be researched separately.",
+      "sources": [
+        "continue_cli",
+        "continue_config"
+      ]
+    },
+    {
+      "queue_key": "cline_extension",
+      "product": "Cline",
+      "vendor": "Cline",
+      "execution_context": "ide_extension",
+      "host_surface": "VS Code, Cursor, Windsurf, JetBrains, Antigravity",
+      "lifecycle_status": "active",
+      "support_track": "candidate_local_first",
+      "local_transcript_likelihood": "high",
+      "state_gravity": "hybrid",
+      "path_research_difficulty": "medium",
+      "priority": "P1",
+      "follow_up_title": "Investigate Cline extension chats, checkpoints, and worktrees",
+      "follow_up_scope": "Inspect extension chat state, checkpoints, Memory Bank or workflow files, provider-auth state, and worktree metadata.",
+      "notes": "Cline is no longer editor-only in product positioning, but the extension remains the main local surface.",
+      "sources": [
+        "cline_overview"
+      ]
+    },
+    {
+      "queue_key": "cline_cli",
+      "product": "Cline CLI",
+      "vendor": "Cline",
+      "execution_context": "cli",
+      "host_surface": "terminal, headless, and CI workflows",
+      "lifecycle_status": "active",
+      "support_track": "candidate_local_first",
+      "local_transcript_likelihood": "high",
+      "state_gravity": "hybrid",
+      "path_research_difficulty": "medium",
+      "priority": "P1",
+      "follow_up_title": "Investigate Cline CLI local transcript artifacts",
+      "follow_up_scope": "Inspect interactive CLI state, headless runs, provider-auth state, and any shared memory or workflow files.",
+      "notes": "CLI mirrors the plan and act flow from the editor, but storage layout is likely separate.",
+      "sources": [
+        "cline_cli",
+        "cline_overview"
+      ]
+    },
+    {
+      "queue_key": "roo_code_extension",
+      "product": "Roo Code",
+      "vendor": "Roo Code",
+      "execution_context": "ide_extension",
+      "host_surface": "VS Code and VS Code forks",
+      "lifecycle_status": "active",
+      "support_track": "candidate_local_first",
+      "local_transcript_likelihood": "high",
+      "state_gravity": "hybrid",
+      "path_research_difficulty": "medium",
+      "priority": "P1",
+      "follow_up_title": "Investigate Roo Code extension local transcript artifacts",
+      "follow_up_scope": "Inspect extension session history, mode or role metadata, provider settings, and any local task history synchronized with cloud accounts.",
+      "notes": "Roo positions the extension as the local, highly controlled surface, distinct from Roo Cloud.",
+      "sources": [
+        "roo_docs"
+      ]
+    },
+    {
+      "queue_key": "roo_code_cloud",
+      "product": "Roo Code Cloud",
+      "vendor": "Roo Code",
+      "execution_context": "remote_cloud_agent",
+      "host_surface": "web, Slack, GitHub, Linear",
+      "lifecycle_status": "active",
+      "support_track": "candidate_remote",
+      "local_transcript_likelihood": "low",
+      "state_gravity": "cloud_first",
+      "path_research_difficulty": "high",
+      "priority": "P2",
+      "follow_up_title": "Investigate Roo Code Cloud local handoff artifacts",
+      "follow_up_scope": "Look for local residue from web downloads, shared-task views, and IDE handoff points rather than canonical cloud history.",
+      "notes": "Autonomous cloud agents, team history, and task sharing strongly indicate cloud-first canonical state.",
+      "sources": [
+        "roo_cloud",
+        "roo_docs"
+      ]
+    },
+    {
+      "queue_key": "aider_cli",
+      "product": "Aider",
+      "vendor": "Aider",
+      "execution_context": "cli",
+      "host_surface": "terminal",
+      "lifecycle_status": "active",
+      "support_track": "candidate_local_first",
+      "local_transcript_likelihood": "high",
+      "state_gravity": "local_first",
+      "path_research_difficulty": "low",
+      "priority": "P1",
+      "follow_up_title": "Investigate Aider local transcript and git-linked artifacts",
+      "follow_up_scope": "Inspect terminal history, config files, repo-map artifacts, browser-mode residue, and git-linked breadcrumbs.",
+      "notes": "Aider is terminal-first and git-centric; its browser UI still edits the local repo through aider rather than introducing a fully separate cloud surface.",
+      "sources": [
+        "aider_docs"
+      ]
+    },
+    {
+      "queue_key": "zed_agent_panel_hosted",
+      "product": "Zed",
+      "vendor": "Zed",
+      "execution_context": "ide_native",
+      "host_surface": "Agent Panel and Text Threads",
+      "lifecycle_status": "active",
+      "support_track": "candidate_local_first",
+      "local_transcript_likelihood": "medium",
+      "state_gravity": "hybrid",
+      "path_research_difficulty": "high",
+      "priority": "P1",
+      "follow_up_title": "Investigate Zed hosted-agent local artifacts",
+      "follow_up_scope": "Verify what the local app persists beyond settings: text-thread files, prompt buffers, agent-panel state, and provider-specific caches.",
+      "notes": "Zed says prompts and code context are not stored by default, so transcript value may depend on saved text threads rather than implicit agent history.",
+      "sources": [
+        "zed_ai_overview",
+        "zed_ai_privacy"
+      ]
+    },
+    {
+      "queue_key": "zed_external_agent_panel",
+      "product": "Zed",
+      "vendor": "Zed",
+      "execution_context": "protocol_hosted",
+      "host_surface": "Zed ACP with external agents like Codex, Gemini CLI, Claude, or Aider",
+      "lifecycle_status": "active",
+      "support_track": "candidate_local_first",
+      "local_transcript_likelihood": "medium",
+      "state_gravity": "dual_source",
+      "path_research_difficulty": "high",
+      "priority": "P1",
+      "follow_up_title": "Investigate Zed ACP dual-source transcript artifacts",
+      "follow_up_scope": "Inspect both Zed host-side thread state and the external agent's native storage for mirrored or complementary transcripts.",
+      "notes": "Potential double source: host-side thread UI plus external agent-native history.",
+      "sources": [
+        "zed_ai_overview",
+        "zed_ai_privacy",
+        "zed_acp"
+      ]
+    },
+    {
+      "queue_key": "replit_agent_workspace",
+      "product": "Replit Agent",
+      "vendor": "Replit",
+      "execution_context": "browser_workspace",
+      "host_surface": "Replit App workspace",
+      "lifecycle_status": "active",
+      "support_track": "candidate_remote",
+      "local_transcript_likelihood": "low",
+      "state_gravity": "cloud_first",
+      "path_research_difficulty": "medium",
+      "priority": "P2",
+      "follow_up_title": "Investigate local export and browser residue for Replit Agent",
+      "follow_up_scope": "Focus on exported checkpoints, downloaded files, and browser-side caches rather than cloud-native chat history.",
+      "notes": "Checkpoints, progress tabs, and chat live inside the hosted workspace.",
+      "sources": [
+        "replit_agent"
+      ]
+    },
+    {
+      "queue_key": "antigravity_editor_view",
+      "product": "Antigravity",
+      "vendor": "Antigravity",
+      "execution_context": "ide_native",
+      "host_surface": "Antigravity Editor View",
+      "lifecycle_status": "preview",
+      "support_track": "target_now",
+      "local_transcript_likelihood": "medium",
+      "state_gravity": "hybrid",
+      "path_research_difficulty": "high",
+      "priority": "P0",
+      "follow_up_title": "Investigate Antigravity Editor View local artifacts",
+      "follow_up_scope": "Inspect the VS Code fork's local state, agent side-panel history, browser-automation artifacts, and workspace metadata.",
+      "doc_path_clues": [
+        "Observed macOS roots: ~/Library/Application Support/Antigravity and ~/.gemini/antigravity.",
+        "Strongest transcript candidate observed on macOS: ~/.gemini/antigravity/conversations/<uuid>.pb.",
+        "WorkspaceStorage chat.ChatSessionStore.index was empty across inspected macOS workspaces, so the VS Code host chat index is not the primary transcript source on this machine.",
+        "Detailed note: docs/research/antigravity-editor-view-local-artifacts.md"
+      ],
+      "notes": "The product is a repo target, but public source material is thinner and domain provenance should be rechecked during detailed path work. Detailed macOS path work found shared global roots with Manager-related unified state rather than an isolated Editor-only store.",
+      "sources": [
+        "antigravity_site",
+        "antigravity_blog"
+      ]
+    },
+    {
+      "queue_key": "antigravity_manager_view",
+      "product": "Antigravity",
+      "vendor": "Antigravity",
+      "execution_context": "manager_surface",
+      "host_surface": "Antigravity Manager View and Inbox",
+      "lifecycle_status": "preview",
+      "support_track": "target_now",
+      "local_transcript_likelihood": "medium",
+      "state_gravity": "dual_source",
+      "path_research_difficulty": "high",
+      "priority": "P1",
+      "follow_up_title": "Investigate Antigravity Manager View orchestration artifacts",
+      "follow_up_scope": "Inspect manager inbox history, artifacts, cross-surface agent state, and editor-to-manager handoff files.",
+      "notes": "Mission-control surface for multi-agent orchestration; likely stores different metadata from Editor View.",
+      "sources": [
+        "antigravity_site",
+        "antigravity_blog"
+      ]
+    }
+  ]
+}
