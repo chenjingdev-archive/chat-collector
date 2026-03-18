@@ -1,0 +1,103 @@
+{
+  "sessionId": "11111111-1111-4111-8111-111111111111",
+  "projectHash": "405eda4350775ff5078564a943938aa644a52df29bb6db3f5ef29353e3d79edb",
+  "startTime": "2026-03-14T10:00:00Z",
+  "lastUpdated": "2026-03-14T10:00:10Z",
+  "summary": "This summary should not be emitted as transcript content.",
+  "messages": [
+    {
+      "id": "info-1",
+      "type": "info",
+      "timestamp": "2026-03-14T10:00:01Z",
+      "content": "Session initialized"
+    },
+    {
+      "id": "user-1",
+      "type": "user",
+      "timestamp": "2026-03-14T10:00:02Z",
+      "content": "Inspect the chat collector repository."
+    },
+    {
+      "id": "gemini-1",
+      "type": "gemini",
+      "timestamp": "2026-03-14T10:00:03Z",
+      "content": "I will inspect the collector entry points.",
+      "model": "gemini-2.0-pro",
+      "thoughts": [
+        {
+          "subject": "plan",
+          "description": "Inspect the relevant files",
+          "timestamp": "2026-03-14T10:00:03Z"
+        }
+      ],
+      "toolCalls": [
+        {
+          "id": "tool-1",
+          "name": "shell",
+          "status": "completed",
+          "resultDisplay": "ignored shell output"
+        }
+      ],
+      "tokens": {
+        "input": 18,
+        "output": 24,
+        "cached": 0,
+        "thoughts": 7,
+        "tool": 3,
+        "total": 52
+      }
+    },
+    {
+      "id": "error-1",
+      "type": "error",
+      "timestamp": "2026-03-14T10:00:04Z",
+      "content": "hook output"
+    },
+    {
+      "id": "user-2",
+      "type": "user",
+      "timestamp": "2026-03-14T10:00:05Z",
+      "content": {
+        "parts": [
+          {
+            "text": "Summarize the Gemini artifact layout."
+          },
+          {
+            "inlineData": "ignored"
+          }
+        ]
+      }
+    },
+    {
+      "id": "gemini-2",
+      "type": "gemini",
+      "timestamp": "2026-03-14T10:00:06Z",
+      "content": {
+        "parts": [
+          {
+            "text": "Session JSON under ~/.gemini/tmp/<hash>/chats is the clean transcript root."
+          },
+          {
+            "text": "logs.json and history are noise for memory output."
+          }
+        ]
+      },
+      "toolCalls": [
+        {
+          "id": "tool-2",
+          "name": "read_file",
+          "status": "completed",
+          "resultDisplay": "ignored tool output"
+        }
+      ],
+      "tokens": {
+        "input": 30,
+        "output": 28,
+        "cached": 2,
+        "thoughts": 11,
+        "tool": 8,
+        "total": 79
+      }
+    }
+  ]
+}

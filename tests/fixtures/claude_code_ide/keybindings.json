@@ -1,0 +1,16 @@
+{
+  "$schema": "https://claude.example/keybindings.schema.json",
+  "$docs": "fixture only",
+  "bindings": [
+    {
+      "context": "Transcript",
+      "key": "shift+enter",
+      "command": "claude.submitSelection"
+    },
+    {
+      "context": "DiffDialog",
+      "key": "cmd+enter",
+      "command": "claude.acceptDiff"
+    }
+  ]
+}

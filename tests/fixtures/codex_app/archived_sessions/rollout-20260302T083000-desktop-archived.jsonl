@@ -1,0 +1,4 @@
+{"type":"session_meta","payload":{"id":"desktop-archived","timestamp":"2026-03-02T08:30:00Z","cwd":"/Users/chenjing/dev/chat-collector","source":"exec","originator":"Codex Desktop","cli_version":"0.31.0"}}
+{"type":"response_item","payload":{"type":"message","id":"arch-user","role":"user","content":[{"type":"input_text","text":"Summarize the Desktop app collector changes."}]}}
+{"type":"response_item","payload":{"type":"custom_tool_call","id":"tool-1","name":"app_list","arguments":"{}"}}
+{"type":"response_item","payload":{"type":"message","id":"arch-assistant","role":"assistant","content":[{"type":"output_text","text":"The collector now filters Desktop sessions and ignores shell-support noise."}]}}

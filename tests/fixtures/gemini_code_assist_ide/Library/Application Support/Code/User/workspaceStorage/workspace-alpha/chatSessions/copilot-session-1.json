@@ -1,0 +1,17 @@
+{
+  "sessionId": "copilot-session-1",
+  "responderUsername": "GitHub Copilot",
+  "selectedModel": {
+    "metadata": {
+      "extension": {
+        "value": "GitHub.copilot-chat"
+      }
+    }
+  },
+  "requests": [
+    {
+      "message": "Copilot empty shell request text must stay out."
+    }
+  ],
+  "isEmpty": true
+}

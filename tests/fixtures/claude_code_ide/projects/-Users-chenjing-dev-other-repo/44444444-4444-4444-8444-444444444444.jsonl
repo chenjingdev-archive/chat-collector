@@ -1,0 +1,2 @@
+{"type":"user","timestamp":"2026-03-14T12:00:01Z","sessionId":"44444444-4444-4444-8444-444444444444","uuid":"row-user-cli-1","cwd":"/Users/chenjing/dev/other-repo","message":{"id":"user-cli-1","role":"user","content":"Summarize the last CLI-only run."}}
+{"type":"assistant","timestamp":"2026-03-14T12:00:02Z","sessionId":"44444444-4444-4444-8444-444444444444","uuid":"row-assistant-cli-1","cwd":"/Users/chenjing/dev/other-repo","message":{"id":"asst-cli-1","role":"assistant","content":[{"type":"text","text":"This session never attached to an IDE."}]}}

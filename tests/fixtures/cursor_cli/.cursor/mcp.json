@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "cursor-ide-browser": {
+      "headers": {
+        "Authorization": "Bearer super-secret-token"
+      }
+    }
+  }
+}

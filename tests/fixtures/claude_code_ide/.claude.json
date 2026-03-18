@@ -1,0 +1,13 @@
+{
+  "autoConnectIde": true,
+  "officialMarketplaceAutoInstallAttempted": true,
+  "officialMarketplaceAutoInstalled": true,
+  "shiftEnterKeyBindingInstalled": true,
+  "optionAsMetaKeyInstalled": true,
+  "projects": {
+    "/Users/chenjing/dev/chat-collector": {
+      "trusted": true,
+      "mcpEnabled": true
+    }
+  }
+}

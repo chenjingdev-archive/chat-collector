@@ -1,0 +1,9 @@
+{"type":"session_meta","payload":{"id":"desktop-active","timestamp":"2026-03-14T11:00:00Z","cwd":"/Users/chenjing/dev/chat-collector","source":"exec","originator":"Codex Desktop","cli_version":"0.32.0","dynamic_tools":[{"name":"exec_command"}],"base_instructions":"internal"}}
+{"type":"turn_context","payload":{"cwd":"/Users/chenjing/dev/chat-collector","approval_policy":"never","sandbox_policy":"workspace-write","current_date":"2026-03-14"}}
+{"type":"response_item","payload":{"type":"message","id":"app-dev","role":"developer","content":[{"type":"input_text","text":"Prefer the shared rollout transcript."}]}}
+{"type":"response_item","payload":{"type":"reasoning","id":"reason-1","summary":[{"type":"summary_text","text":"Inspect Desktop support files."}]}}
+{"type":"response_item","payload":{"type":"message","id":"app-user","role":"user","content":[{"type":"input_text","text":"Collect the Desktop app sessions only."},{"type":"input_image","mime_type":"image/png","image_url":"file:///tmp/mock.png"}]}}
+{"type":"response_item","payload":{"type":"function_call","id":"call-1","call_id":"call-1","name":"exec_command","arguments":"{\"cmd\":\"pwd\"}"}}
+{"type":"response_item","payload":{"type":"web_search_call","id":"search-1","query":"codex desktop app"}}
+{"type":"response_item","payload":{"type":"message","id":"app-assistant","role":"assistant","content":[{"type":"output_text","text":"I will filter on Codex Desktop and keep shell artifacts as provenance only."}]}}
+{"type":"event_msg","payload":{"type":"agent_reasoning","text":"ignored"}}

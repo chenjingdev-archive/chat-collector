@@ -1,0 +1,19 @@
+{
+  "sessionId": "33333333-3333-4333-8333-333333333333",
+  "projectHash": "e9a13e9da3d0dcd08ee94ecd2a07993d0d506eb7c6115959959e4381d318a87b",
+  "startTime": "2026-03-14T09:30:00Z",
+  "messages": [
+    {
+      "id": "other-user-1",
+      "type": "user",
+      "timestamp": "2026-03-14T09:30:01Z",
+      "content": "This session belongs to another repository."
+    },
+    {
+      "id": "other-gemini-1",
+      "type": "gemini",
+      "timestamp": "2026-03-14T09:30:02Z",
+      "content": "It must not be collected for chat-collector."
+    }
+  ]
+}

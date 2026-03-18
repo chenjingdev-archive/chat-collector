@@ -1,0 +1,9 @@
+{"type":"session_meta","payload":{"id":"session-archived","timestamp":"2026-03-01T10:15:00Z","cwd":"/Users/chenjing/dev/another-repo","source":"cli","originator":"codex_cli_rs","cli_version":"0.31.1","dynamic_tools":[{"name":"tool_search"}],"base_instructions":"internal"}}
+{"type":"event_msg","payload":{"type":"user_message","text":"ignored"}}
+{"type":"response_item","payload":{"type":"message","id":"arch-user","role":"user","content":[{"type":"input_text","text":"Summarize the last change."}]}}
+{"type":"response_item","payload":{"type":"custom_tool_call","id":"tool-1","name":"search_docs","arguments":"{}"}}
+{"type":"response_item","payload":{"type":"custom_tool_call_output","id":"tool-1","output":"ignored"}}
+{"type":"response_item","payload":{"type":"tool_search_call","id":"search-2","query":"collector registry"}}
+{"type":"response_item","payload":{"type":"tool_search_output","id":"search-2","output":"ignored"}}
+{"type":"response_item","payload":{"type":"message","id":"arch-assistant","role":"assistant","content":[{"type":"output_text","text":"The last change added the collector."},{"type":"output_text","text":"It also added tests."}]}}
+{"type":"turn_context","payload":{"approval_policy":"never","sandbox_policy":"workspace-write"}}

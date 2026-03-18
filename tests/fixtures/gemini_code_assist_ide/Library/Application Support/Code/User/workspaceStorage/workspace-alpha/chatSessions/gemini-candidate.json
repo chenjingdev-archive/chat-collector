@@ -1,0 +1,17 @@
+{
+  "sessionId": "gemini-candidate",
+  "responderUsername": "Gemini Code Assist",
+  "selectedModel": {
+    "metadata": {
+      "extension": {
+        "value": "google.geminicodeassist"
+      }
+    }
+  },
+  "requests": [
+    {
+      "message": "Gemini candidate request text must stay out."
+    }
+  ],
+  "isEmpty": false
+}

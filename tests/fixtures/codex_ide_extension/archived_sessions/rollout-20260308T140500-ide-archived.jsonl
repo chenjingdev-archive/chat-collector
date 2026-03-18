@@ -1,0 +1,7 @@
+{"type":"session_meta","payload":{"id":"ide-archived","timestamp":"2026-03-08T14:05:00Z","cwd":"/Users/chenjing/dev/archived-repo","source":"vscode","originator":"codex_vscode","cli_version":"0.31.1","dynamic_tools":[{"name":"exec_command"}]}}
+{"type":"event_msg","payload":{"type":"user_message","text":"ignored"}}
+{"type":"response_item","payload":{"type":"message","id":"arch-user","role":"user","content":[{"type":"input_text","text":"Summarize the IDE bridge behavior."}]}}
+{"type":"response_item","payload":{"type":"custom_tool_call","id":"tool-1","name":"inspect_logs","arguments":"{}"}}
+{"type":"response_item","payload":{"type":"custom_tool_call_output","id":"tool-1","output":"ignored"}}
+{"type":"response_item","payload":{"type":"message","id":"arch-assistant","role":"assistant","content":[{"type":"output_text","text":"The bridge files stay in provenance."},{"type":"output_text","text":"Only transcript messages stay in the archive."}]}}
+{"type":"turn_context","payload":{"approval_policy":"never","sandbox_policy":"workspace-write"}}

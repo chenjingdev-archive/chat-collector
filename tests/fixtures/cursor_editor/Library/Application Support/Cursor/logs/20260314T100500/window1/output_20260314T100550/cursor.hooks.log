@@ -1,0 +1,2 @@
+{"hook_event_name":"sessionEnd","conversation_id":"composer-alpha","session_id":"cursor-session-alpha","model":"composer-1","reason":"window_close","transcript_path":null,"workspace_roots":["/Users/chenjing/dev/chat-collector"]}
+{"hook_event_name":"heartbeat","message":"Hook log text should stay provenance only."}

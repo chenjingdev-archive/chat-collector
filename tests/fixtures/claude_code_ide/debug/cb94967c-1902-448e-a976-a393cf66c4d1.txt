@@ -1,0 +1,3 @@
+Official marketplace auto-install skipped: already_attempted
+Watching for changes to /Users/chenjing/.claude/keybindings.json
+Loaded 94 user bindings from /Users/chenjing/.claude/keybindings.json

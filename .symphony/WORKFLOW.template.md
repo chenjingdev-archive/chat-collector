@@ -22,7 +22,7 @@ hooks:
   timeout_ms: 300000
 agent:
   max_concurrent_agents: 1
-  max_turns: 20
+  max_turns: 10
 codex:
   command: $CODEX_BIN app-server
   approval_policy: never

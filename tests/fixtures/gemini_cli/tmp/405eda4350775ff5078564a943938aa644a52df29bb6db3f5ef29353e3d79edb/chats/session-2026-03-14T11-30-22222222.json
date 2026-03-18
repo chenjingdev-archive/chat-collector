@@ -1,0 +1,65 @@
+{
+  "sessionId": "22222222-2222-4222-8222-222222222222",
+  "projectHash": "405eda4350775ff5078564a943938aa644a52df29bb6db3f5ef29353e3d79edb",
+  "startTime": "2026-03-14T11:30:00Z",
+  "lastUpdated": "2026-03-14T11:30:05Z",
+  "messages": [
+    {
+      "id": "user-3",
+      "type": "user",
+      "timestamp": "2026-03-14T11:30:01Z",
+      "content": [
+        "Keep only human-facing text.",
+        {
+          "text": "Drop tool call residue."
+        }
+      ]
+    },
+    {
+      "id": "gemini-3",
+      "type": "gemini",
+      "timestamp": "2026-03-14T11:30:02Z",
+      "content": [
+        {
+          "text": "Understood."
+        },
+        {
+          "parts": [
+            {
+              "text": "I will keep user and assistant text only."
+            }
+          ]
+        }
+      ],
+      "thoughts": [
+        {
+          "subject": "filter",
+          "description": "Drop tool payloads",
+          "timestamp": "2026-03-14T11:30:02Z"
+        }
+      ],
+      "toolCalls": [],
+      "tokens": {
+        "input": 12,
+        "output": 13,
+        "cached": 0,
+        "thoughts": 2,
+        "tool": 0,
+        "total": 27
+      }
+    },
+    {
+      "id": "gemini-empty",
+      "type": "gemini",
+      "timestamp": "2026-03-14T11:30:03Z",
+      "content": "   ",
+      "toolCalls": [
+        {
+          "id": "tool-3",
+          "name": "shell",
+          "status": "completed"
+        }
+      ]
+    }
+  ]
+}

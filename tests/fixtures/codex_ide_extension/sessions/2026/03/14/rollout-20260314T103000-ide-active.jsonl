@@ -1,0 +1,10 @@
+{"type":"session_meta","payload":{"id":"ide-active","timestamp":"2026-03-14T10:30:00Z","cwd":"/Users/chenjing/dev/chat-collector","source":"vscode","originator":"codex_vscode","cli_version":"0.32.0","dynamic_tools":[{"name":"exec_command"}],"base_instructions":"internal"}}
+{"type":"turn_context","payload":{"cwd":"/Users/chenjing/dev/chat-collector","approval_policy":"never","sandbox_policy":"workspace-write","current_date":"2026-03-14"}}
+{"type":"response_item","payload":{"type":"message","id":"ide-dev","role":"developer","content":[{"type":"input_text","text":"Prefer the shared rollout transcript."}]}}
+{"type":"response_item","payload":{"type":"reasoning","id":"reason-1","summary":[{"type":"summary_text","text":"Inspect host logs."}]}}
+{"type":"response_item","payload":{"type":"message","id":"ide-user","role":"user","content":[{"type":"input_text","text":"Add the IDE extension collector."},{"type":"input_image","mime_type":"image/png","image_url":"file:///tmp/mock.png"}]}}
+{"type":"response_item","payload":{"type":"function_call","id":"call-1","call_id":"call-1","name":"exec_command","arguments":"{\"cmd\":\"pwd\"}"}}
+{"type":"response_item","payload":{"type":"function_call_output","call_id":"call-1","output":"ignored"}}
+{"type":"response_item","payload":{"type":"web_search_call","id":"search-1","query":"codex ide extension"}}
+{"type":"response_item","payload":{"type":"message","id":"ide-assistant","role":"assistant","content":[{"type":"output_text","text":"I will filter on codex_vscode and keep bridge files as provenance only."}]}}
+{"type":"event_msg","payload":{"type":"agent_reasoning","text":"ignored"}}
